@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         urbanist: ["Urbanist", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        hanson: ["HansonBold", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
