@@ -1,9 +1,31 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
 const HeroSection = () => {
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const imageElement = imageRef.current;
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 100;
+
+      if (scrollPosition > scrollThreshold) {
+        imageElement.classList.add("scrolled");
+      } else {
+        imageElement.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
@@ -19,19 +41,19 @@ const HeroSection = () => {
           </p>
         </div>
         <div className="flex justify-center space-x-4">
-          <Link href="https://www.youtube.com/watch?v=UbXpRv5ApKA&t=2081s">
+          <Link href="/dashboard">
             <Button size="lg" className="px-8 font-poppins">
-              Live Demo
+              Get Started
             </Button>
           </Link>
-          <Link href="/dashboard">
-            <Button size="lg" className="px-8" variant="outline">
-              Get Started
+          <Link href="https://www.youtube.com/watch?v=UbXpRv5ApKA&t=2081s">
+            <Button size="lg" className="px-8 font-poppins" variant="outline">
+              Watch Demo
             </Button>
           </Link>
         </div>
         <div className="hero-image-wrapper mt-5 md:mt-0">
-          <div>
+          <div ref={imageRef} className="hero-image">
             <Image
               src={"/banner.jpeg"}
               width={1280}

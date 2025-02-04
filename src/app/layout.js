@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
           >
             <main className="min-h-screen">{children}</main>
             <footer className="py-4 text-center">
-              <p>Made with 🐦‍🔥 by Shiva</p>
+              <p>Made with ❤️‍🔥 by Shiva Sajay</p>
             </footer>
           </ThemeProvider>
         </body>
