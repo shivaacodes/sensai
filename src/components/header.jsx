@@ -23,61 +23,65 @@ const Header = async () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/">
-          <Image
-            src="/logo.png"
-            alt="Sensai Logo"
-            width={200}
-            height={60}
-            className="h-12 w-auto object-contain py-1"
-          />
-        </Link>
+        <div className="flex items-center space-x-4">
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Sensai Logo"
+              width={200}
+              height={60}
+              className="h-12 w-auto object-contain py-1"
+            />
+          </Link>
 
-        {/* Navigation Actions */}
-        <div className="flex items-center space-x-2">
-          {/* Dashboard Button */}
+          {/* Navigation Actions */}
           <SignedIn>
-            <Link href="/dashboard">
-              <Button variant="outline">
-                <LayoutDashboard className="h-4 w-4" />
-                <span className="hidden md:block">Industry Insights</span>
-              </Button>
-            </Link>
-
-            {/* Dropdown Menu */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button>
-                  <span className="hidden md:block">Growth Tools</span>
-                  <StarIcon className="h-5 w-5 ml-2" />
-                  <ChevronDown className="h-5 w-5 ml-1" />
+            <div className="flex items-center space-x-2">
+              {/* Dashboard Button */}
+              <Link href="/dashboard">
+                <Button variant="outline">
+                  <LayoutDashboard className="h-4 w-4" />
+                  <span className="hidden md:block">Industry Insights</span>
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href={"/resume"} className="flex items-center gap-2">
-                    <File className="h-4 w-4" />
-                    <span>Build Resume</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link
-                    href={"/ai-cover-letter"}
-                    className="flex items-center gap-2"
-                  >
-                    <PenBox className="h-4 w-4" />
-                    <span>Cover Letter</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href={"/interview"} className="flex items-center gap-2">
-                    <GraduationCap className="h-4 w-4" />
-                    <span>Interview Prep</span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </Link>
+
+              {/* Dropdown Menu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button>
+                    <span className="hidden md:block">Growth Tools</span>
+                    <StarIcon className="h-5 w-5 ml-2" />
+                    <ChevronDown className="h-5 w-5 ml-1" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <Link href={"/resume"} className="flex items-center gap-2">
+                      <File className="h-4 w-4" />
+                      <span>Build Resume</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href={"/ai-cover-letter"}
+                      className="flex items-center gap-2"
+                    >
+                      <PenBox className="h-4 w-4" />
+                      <span>Cover Letter</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href={"/interview"}
+                      className="flex items-center gap-2"
+                    >
+                      <GraduationCap className="h-4 w-4" />
+                      <span>Interview Prep</span>
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </SignedIn>
         </div>
 

@@ -2,8 +2,9 @@ import { Urbanist, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
+import Header from "@/components/header";
 
-// Font configurations
 const urbanist = Urbanist({
   variable: "--font-urbanist",
   subsets: ["latin"],
@@ -22,6 +23,9 @@ export const metadata = {
   description: "A modern web application built with Next.js",
   keywords: ["Next.js", "React", "JavaScript", "Web Development"],
   authors: [{ name: "Shiva Sajay", url: "https://yourwebsite.com" }],
+};
+
+export const viewport = {
   themeColor: "#000000",
 };
 
@@ -30,7 +34,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${urbanist.variable} ${poppins.variable} font-urbanist antialiased`}
+          className={`${urbanist.variable} ${poppins.variable} font-poppins antialiased`}
         >
           <ThemeProvider
             attribute="class"
@@ -38,9 +42,11 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+            <Header />
             <main className="min-h-screen">{children}</main>
-            <footer className="py-4 text-center">
-              <p>Made with ❤️‍🔥 by Shiva Sajay</p>
+            <Toaster richColors />
+            <footer className="py-4 text-center text-sm gradient-text">
+              <p>Made by Shiva</p>
             </footer>
           </ThemeProvider>
         </body>
